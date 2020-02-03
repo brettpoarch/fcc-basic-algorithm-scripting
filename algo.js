@@ -139,3 +139,78 @@ function truncateString(str, num) {
 truncateString("A-tisket a-tasket A green and yellow basket", 8);
 
 
+//function to look through an array and return the first element(arg 1) to pass the test(arg 2) else if none pass return undefined
+function findElement(arr, func) {
+  for (let i = 0; i < arr.length; i ++){
+    if (func(arr[i])){
+      return arr[i] 
+    }
+  }
+}
+
+findElement([1, 2, 3, 4], num => num % 2 === 0);
+
+
+//function to check if value is boolean primitive. done two ways
+//first using if statement
+function booWho(bool) {
+  if(bool === true || bool === false){
+    return  bool = true;
+  }
+   return bool = false;
+}
+
+booWho(1);
+
+//second uses typeof
+function booWho(bool) {
+  return typeof bool === 'boolean'
+}
+
+booWho(1);
+
+
+//function to capitalize the first letter of each sentence
+function titleCase(str) {
+  str = str.toLowerCase();
+  let newStr = ''
+  let arr = str.split(' ');
+  for (let i = 0; i < arr.length; i++){
+    str = arr[i][0].toUpperCase();
+    str = str + arr[i].slice(1);
+    if (newStr == ''){
+      newStr = str;
+    } else {
+      newStr = newStr + ' ' + str;
+    }
+  }
+  return newStr;
+}
+
+titleCase("I'm a little tea pot");
+
+//function to copy array 1 elements into aray 2 starting at the n index
+function frankenSplice(arr1, arr2, n) {
+  let arr3 = arr2.slice();
+  for (let i = arr1.length - 1 ; i >= 0; i--){
+    arr3.splice(n, 0, arr1[i])
+  }
+  return arr3;
+}
+
+frankenSplice([1, 2, 3], [4, 5, 6], 1);
+
+
+//function to remove false values
+function bouncer(arr) {
+  let newArr = []
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i]){
+      newArr.push(arr[i])
+    }
+  }
+  return newArr;
+}
+
+bouncer([null, NaN, 1, 2, undefined]);
+
