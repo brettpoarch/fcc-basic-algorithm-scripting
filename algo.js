@@ -63,3 +63,79 @@ function factorialize(num) {
 }
 
 factorialize(5);
+
+
+//function returning length of the longest word in a string
+function findLongestWordLength(str) {
+  let arr = str.split(' ')
+  let longest = '';
+  for (let i = 0; i < arr.length; i ++){ 
+    if (arr[i].length > longest.length){
+      longest = arr[i];
+    }
+  }
+  return longest.length;
+}
+
+findLongestWordLength("The quick brown fox jumped over the lazy dog");
+
+
+//function returning largest number in an array
+function largestOfFour(arr) {
+  let newArr = [];
+  let a = '';
+  for (let i = 0; i < arr.length; i++){ 
+    for (let j = 0; j < arr[i].length; j++){
+      if (arr[i][j] >= a || a == '') {
+        a = arr[i][j];
+       } 
+    }
+    newArr.push(a)
+    a = ''
+  }
+  arr = newArr
+  return arr;
+}
+
+largestOfFour([[4, 5, 1, 3], [13, 27, 18, 26], [32, 35, 37, 39], [1000, 1001, 857, 1]]);
+
+
+//function confirming the end of the string
+function confirmEnding(str, target) {
+    if (str.slice([str.length - (target.length)]) == target){
+    return true;
+  };
+    return false;
+}
+
+
+//function to repeat string
+function repeatStringNumTimes(str, num) {
+  let newStr = ''
+  if (num <= 0 ){
+    return str = ''
+  }
+  for (var i = 0; i < num; i++){
+    newStr = newStr + str
+  }
+  return newStr;
+}
+
+repeatStringNumTimes("abc", 3);
+
+
+
+confirmEnding("connor", "n");
+
+
+//function to truncate a string
+function truncateString(str, num) {
+  if (str.length > num){
+    str = str.slice(0, num) + '...'
+  }
+  return str;
+}
+
+truncateString("A-tisket a-tasket A green and yellow basket", 8);
+
+
