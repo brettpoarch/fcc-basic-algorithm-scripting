@@ -214,3 +214,44 @@ function bouncer(arr) {
 
 bouncer([null, NaN, 1, 2, undefined]);
 
+
+//function to Return the lowest index at which a value (second argument) should be inserted into an array (first argument) once it has been sorted
+function getIndexToIns(arr, num) {
+  arr.push(num)
+  arr.sort(function(a,b){
+    return a-b
+  });
+  return num = arr.indexOf(num)
+}
+
+getIndexToIns([40, 20, 60, 1], 50);
+
+
+//function to Return true if the string in the first element of the array contains all of the letters of the string in the second element of the array.
+function mutation(arr) {
+  let arr1 = arr[0].toLowerCase()
+  let arr2 = arr[1].toLowerCase()
+  for (let i = 0; i < arr2.length; i++){
+    if(arr1.indexOf(arr2[i]) < 0){
+      return false;
+    }
+  }
+  return true;
+};
+
+mutation(["HELLO", "hey"]);
+
+
+
+//Write a function that splits an array (first argument) into groups the length of size
+function chunkArrayInGroups(arr, size) {
+  let newArr = []
+  for (let i = arr.length; i > 0; i -= size){
+      newArr.push(arr.splice(0, size)) 
+  }
+  return newArr;
+}
+
+chunkArrayInGroups([0, 1, 2, 3, 4, 5, 6], 3);
+
+
